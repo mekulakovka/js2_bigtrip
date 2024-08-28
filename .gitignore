@@ -7,6 +7,7 @@
 # Вспомогательные файлы
 *.log*
 node_modules/
+markup/
 
 # Собранные файлы
 build/
