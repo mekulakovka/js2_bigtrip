@@ -3,6 +3,13 @@
   "version": "17.0.0",
   "private": true,
   "description": "Проект «Большое Путешествие» от HTML Academy",
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all",
+    "not < 0.25%"
+  ],
   "scripts": {
     "lint": "eslint src/",
     "build": "webpack --mode production",
@@ -18,5 +25,10 @@
   },
   "engines": {
     "node": "18"
+  },
+  "dependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "babel-loader": "^9.1.3"
   }
 }
