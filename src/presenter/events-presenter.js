@@ -1,30 +1,32 @@
 import SortView from '../view/sort-view.js';
 import TripsListView from '../view/trip-events-list-view.js';
 import TripItemView from '../view/trip-event-item-view.js';
-import FormAddEventView from '../view/form-add-event-view.js';
 import FormEditEventView from '../view/form-edit-event-view.js';
 
 import {render} from '../render.js';
 
-const TEMP_TRIPS_COUNTER = 3;
-
 export default class EventsPresenter {
   sortComponent = new SortView();
   tripListContainerComponent = new TripsListView();
-  FormAddEventComponent = new FormAddEventView();
-  FormEditEventComponent = new FormEditEventView();
 
-  init = (container) => {
+  init = (container, eventsModel, offersModel) => {
     this.container = container;
+    this.eventsModel = eventsModel;
+    this.offersModel = offersModel;
+
+    this.events = [...eventsModel.get()];
 
     render(this.sortComponent, this.container);
-    render(this.tripListContainerComponent, this.container);
-    render(this.FormAddEventComponent, this.tripListContainerComponent.getElement());
-    //render(this.FormEditEventComponent, this.tripListContainerComponent.getElement());
+    render(this.tripListContainerComponent, this.container);        
 
-    for (let i = 0; i < TEMP_TRIPS_COUNTER; i++) {
-      render( new TripItemView(), this.tripListContainerComponent.getElement());
+    const offerslist = [...this.offersModel.get(this.events[0])];
+
+    render( new FormEditEventView(), this.tripListContainerComponent.getElement());
+
+    for (let i = 0; i < this.events.length; i++) {
+      render( new TripItemView(this.events[i], offerslist), this.tripListContainerComponent.getElement());
     }
-  }; 
+
+  }
 
 }

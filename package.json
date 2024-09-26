@@ -17,7 +17,7 @@
     "eslint-config-htmlacademy": "5.1.2",
     "webpack": "5.94.0",
     "webpack-cli": "4.10.0",
-    "webpack-dev-server": "4.8.1"    
+    "webpack-dev-server": "4.8.1"
   },
   "browserslist": [
     "last 2 versions",
@@ -26,9 +26,10 @@
     "not op_mini all",
     "not < 0.25%"
   ],
-  
-  
   "engines": {
     "node": "18"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13"
   }
 }
